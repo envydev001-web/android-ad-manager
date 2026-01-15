@@ -62,21 +62,6 @@ HOW TO USE
 
 
 
-
-
-# �� 1.Remote Config Setup
-
-# adCanRequest
-    adCanRequest = mFirebaseRemoteConfig!!.getBoolean("adCanRequest_inter")
-
-# canRequestNativeAd
-
-    canRequestNativeAd = mFirebaseRemoteConfig!!.getBoolean("adCanRequest_native")
-# canRequestBannerAd
-
-    canRequestBannerAd = mFirebaseRemoteConfig!!.getBoolean("adCanRequest_banner")
-
-
 # Configure click + timer thresholds for interstitial ads:
 
 

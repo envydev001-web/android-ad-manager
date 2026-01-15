@@ -169,15 +169,24 @@ Add in your screen layout:
     android:layout_height="@dimen/_240sdp" />
 
 # �� Register Native Ad Container (onResume)
-    NativeAdManager.getInstance(
-    this,
-    getfromSharedPrefs(this@LanguagesActivity, "purchase", false) as Boolean
-).registerContainer(
-    container = banner!!,
-    shimmer = shimmerNativeAd,
-    layoutRes = R.layout.large_native,
-    canRequestNativeAd = canRequestNativeAd
-)
+
+ if (adtoshow != null && adtoshow.getType().toLowerCase().equals("native")) {
+            boolean isPremium = ((Boolean) UtilsKt.getfromSharedPrefs(this, "purchase", false));
+            int nativelayout = R.layout.native_media_ad_layout;
+            if (Integer.parseInt(adtoshow.getSize()) == 5) {
+                nativelayout = com.example.admanager.R.layout.smallnative;
+            } else {
+                nativelayout = com.example.admanager.R.layout.largenative;
+            }
+            NativeAdManager.Companion.getInstance(this, isPremium)
+                    .registerContainer(
+                            adtoshow,
+                            adContainer, // FrameLayout or container
+                            shimmar, // ShimmerFrameLayout
+                            nativelayout, adtoshow.getShow()
+                    );
+
+        }
 
 # �� Load & Show Native Ads
 Load + Show Immediately

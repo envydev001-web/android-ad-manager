@@ -182,10 +182,35 @@ Add in your screen layout:
 # �� Load & Show Native Ads
 Load + Show Immediately
 
-    NativeAdManager.getInstance(
-    this,
-    getfromSharedPrefs(this@LanguagesActivity, "purchase", false) as Boolean
-).loadAndShowAd(native_id_lang, canRequestNativeAd)
+       adtoshow = filterAdsByScreenName(AppConfigKt.getAdslist(), "SelectLanguageActivity");
+        if (adtoshow != null)
+            if (adtoshow.getLocationup()) {
+                adContainer = binding.nativeAdViewTop;
+                shimmar = (ShimmerFrameLayout) binding.shimmerNativeAdTop;
+            } else {
+                adContainer = binding.nativeAdViewBottom;
+                shimmar = (ShimmerFrameLayout) binding.shimmerNativeAdBottom;
+            }
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (adtoshow != null)
+                    AdWrapperManager
+                            .Companion
+                            .getInstance(
+                                    SelectLanguageActivity.this,
+                                    ((Boolean) UtilsKt.getfromSharedPrefs(SelectLanguageActivity.this, "purchase", false)))
+                            .loadAndShowAd(
+                                    adtoshow,
+                                    binding.nativeAdViewTop,
+                                    binding.nativeAdViewBottom,
+                                    (ShimmerFrameLayout) binding.shimmerNativeAdTop,
+                                    (ShimmerFrameLayout) binding.shimmerNativeAdBottom,
+                                    adtoshow.getType().equalsIgnoreCase("native"),
+                                    ((Boolean) UtilsKt.getfromSharedPrefs(SelectLanguageActivity.this, "purchase", false)));
+
+            }
+        }, 100);
 
 
 

@@ -19,6 +19,27 @@ Step 2. Add the dependency
 HOW TO USE 
 # Ads Manager
 
+#AppLevel
+
+ FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.getInstance();
+            FirebaseRemoteConfigSettings  configSettings = new FirebaseRemoteConfigSettings.Builder()
+                    .setMinimumFetchIntervalInSeconds(0) // 🔥 DEV MODE (important)
+                    .build();
+            remoteConfig.setConfigSettingsAsync(configSettings);
+            remoteConfig.fetchAndActivate().addOnCompleteListener(new OnCompleteListener<Boolean>() {
+                @Override
+                public void onComplete(@NonNull Task<Boolean> task) {
+                    if (task.isSuccessful()) {
+                        adsjson = remoteConfig.getString("ads_config_json");
+                        Log.e("jsonlog", "onComplete: "+adsjson );
+                        AppConfigKt.setAdslist(parseAdConfig(adsjson));
+                    }
+                }
+            });
+
+
+
+
 # Summary of Available Functions
 
 # InterstitialAdManager

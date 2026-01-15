@@ -22,6 +22,7 @@ HOW TO USE
 #AppLevel
 
  FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.getInstance();
+ 
             FirebaseRemoteConfigSettings  configSettings = new FirebaseRemoteConfigSettings.Builder()
                     .setMinimumFetchIntervalInSeconds(0) // 🔥 DEV MODE (important)
                     .build();

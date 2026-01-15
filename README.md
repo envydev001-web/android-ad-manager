@@ -45,20 +45,20 @@ HOW TO USE
 
 # InterstitialAdManager
 # Function	Description
-loadSplashAd()   =  	Loads splash-only inter ad
+    loadSplashAd()   =  	Loads splash-only inter ad
 
-showAvailableAd()  =	Shows preloaded inter ad
+    showAvailableAd()  =	Shows preloaded inter ad
 
-loadRegularAd() =	Timer + click-based regular inter ad
+    loadRegularAd() =	Timer + click-based regular inter ad
 # NativeAdManager
 # Function	Description
-preloadAd()=	Loads ad but doesn’t show
+    preloadAd()=	Loads ad but doesn’t show
 
-showPreloadedAd()=	Shows previously loaded ad
+    showPreloadedAd()=	Shows previously loaded ad
 
-loadAndShowAd()	=Loads & shows instantly
+    loadAndShowAd()	=Loads & shows instantly
 
-registerContainer()	=Registers view for auto display 
+    registerContainer()	=Registers view for auto display 
 
 
 
@@ -141,7 +141,7 @@ Preload Native Ad (Example: Language Screen)
 
 # �� 4.Show Interstitial Ads (like in InApp Screen)
 Show Interstitial Ad when needed
-    InterstitialAdManager.getInstance(this@InAppScreen)
+InterstitialAdManager.getInstance(this@InAppScreen)
     .showAvailableAd(
         this@InAppScreen,
         getfromSharedPrefs(this@InAppScreen, "purchase", false) as Boolean,
@@ -170,7 +170,7 @@ Add in your screen layout:
 
 # �� Register Native Ad Container (onResume)
 
- if (adtoshow != null && adtoshow.getType().toLowerCase().equals("native")) {
+     if (adtoshow != null && adtoshow.getType().toLowerCase().equals("native")) {
             boolean isPremium = ((Boolean) UtilsKt.getfromSharedPrefs(this, "purchase", false));
             int nativelayout = R.layout.native_media_ad_layout;
             if (Integer.parseInt(adtoshow.getSize()) == 5) {

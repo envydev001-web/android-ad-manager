@@ -126,7 +126,8 @@ Preload Native Ad (Example: Language Screen)
 
 # �� 4.Show Interstitial Ads (like in InApp Screen)
 Show Interstitial Ad when needed
-InterstitialAdManager.getInstance(this@InAppScreen)
+
+    InterstitialAdManager.getInstance(this@InAppScreen)
     .showAvailableAd(
         this@InAppScreen,
         getfromSharedPrefs(this@InAppScreen, "purchase", false) as Boolean,

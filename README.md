@@ -10,7 +10,7 @@ Add it in your settings.gradle.kts at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	       implementation("com.github.YOUR_USERNAME:android-ad-manager:v1.0.0")
+	       implementation("com.github.envydev001-web:android-ad-manager:v1.0.0")
 	}
 
 

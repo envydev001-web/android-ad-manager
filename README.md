@@ -210,10 +210,11 @@ Load + Show Immediately
 
 
 # ➡️ 6. Interstitial Ads in Welcome Screen
-    InterstitialAdManager.getInstance(this@WelcomeScreenActivity)
-    .showAvailableAd(
-        this@WelcomeScreenActivity,
-        getfromSharedPrefs(this@WelcomeScreenActivity, "purchase", false) as Boolean,
+     Welcome click setting is optional for developers they can set theirs 
+     InterstitialAdManager.getInstance(this@WelcomeScreenActivity)
+       .showAvailableAd(
+         this@WelcomeScreenActivity,
+              getfromSharedPrefs(this@WelcomeScreenActivity, "purchase", false) as Boolean,
         showAd = true,
         showProgress = false,
         listener = object : AdEventListener {

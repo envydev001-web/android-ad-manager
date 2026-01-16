@@ -225,7 +225,7 @@ Load + Show Immediately
 
             override fun onAdFailed(error: String?) {
                 InterstitialAdManager.getInstance(this@WelcomeScreenActivity)
-                    .setCounters(AdConfig.getInstance().clickThreshold - 1, timeDiffFromRemote)
+                    .setCounters(1, 0)
             }
         }
     )
